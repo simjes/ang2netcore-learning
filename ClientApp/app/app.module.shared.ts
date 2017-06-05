@@ -9,8 +9,6 @@ import { CounterComponent } from './components/counter/counter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeroComponent } from './components/hero/hero.component';
 import { HttpModule } from '@angular/http';
-import { AUTH_PROVIDERS } from 'angular2-jwt';
-import { AuthService } from './services/auth.service';
 
 
 export const sharedConfig: NgModule = {
@@ -34,10 +32,6 @@ export const sharedConfig: NgModule = {
             { path: 'hero', component: HeroComponent },
             { path: '**', redirectTo: 'home' }
         ])
-    ],
-    providers: [      
-        AUTH_PROVIDERS,
-        AuthService
     ],
     bootstrap: [AppComponent]
 };
