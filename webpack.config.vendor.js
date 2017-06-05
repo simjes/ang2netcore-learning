@@ -32,6 +32,8 @@ module.exports = (env) => {
                 'event-source-polyfill',
                 'jquery',
                 'zone.js',
+                'auth0-js',
+                'angular2-jwt'
             ]
         },
         output: {
