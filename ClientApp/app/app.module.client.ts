@@ -4,9 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { sharedConfig } from './app.module.shared';
 import { HeroService } from './components/hero/hero.service';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
-    bootstrap: sharedConfig.bootstrap,
     declarations: sharedConfig.declarations,
     imports: [
         BrowserModule,
@@ -16,8 +17,11 @@ import { HeroService } from './components/hero/hero.service';
     ],
     providers: [
         { provide: 'ORIGIN_URL', useValue: location.origin },
-        HeroService
-    ]
+        HeroService,
+        ...AUTH_PROVIDERS,
+        AuthService
+    ],
+    bootstrap: sharedConfig.bootstrap
 })
 export class AppModule {
 }
