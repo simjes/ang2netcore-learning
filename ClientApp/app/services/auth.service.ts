@@ -15,7 +15,7 @@ export class AuthService {
             domain: 'simjes.eu.auth0.com',
             responseType: 'token id_token',
             audience: 'https://simjes.eu.auth0.com/userinfo',
-            redirectUri: 'http://localhost:4200/callback',
+            redirectUri: 'https://localhost:44320/',
             scope: 'openid',
             
         });
