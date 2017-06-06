@@ -9,13 +9,13 @@ namespace Apple.Models
       
       [Required]
       public string Name { get; set; }
-      public ICollection<Power> Medications { get; private set; }
+      public ICollection<Power> Powers { get; private set; }
 
       public Address Address { get; private set; }
 
       public Hero()
       {
-        Medications = new List<Power>();
+        Powers = new List<Power>();
         Address = new Address(); 
       }
     }

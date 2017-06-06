@@ -16,14 +16,13 @@ export class AuthService {
             responseType: 'token id_token',
             audience: 'https://simjes.eu.auth0.com/userinfo',
             redirectUri: 'https://localhost:44320/',
-            scope: 'openid',
+            scope: 'openid profile',
             
         });
     }
 
     public login(): void {
         auth0.authorize();
-        //this.auth0.authorize();
     }
 
     public handleAuthentication(): void {

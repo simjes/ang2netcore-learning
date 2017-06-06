@@ -8,6 +8,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeroComponent } from './components/hero/hero.component';
+import { RankListComponent } from './components/ranklist/ranklist.component';
 import { HttpModule } from '@angular/http';
 
 
@@ -18,7 +19,8 @@ export const sharedConfig: NgModule = {
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        HeroComponent
+        HeroComponent,
+        RankListComponent
     ],
     imports: [
         FormsModule,

@@ -6,10 +6,14 @@ import { Hero } from './hero';
 
 @Injectable()
 export class HeroService { 
-  constructor(private http: Http) {
-  }
+    constructor(private http: Http) {
+    }
 
-  save(hero: Hero) {
-      return this.http.post('/api/heroes', hero);
-  }
+    save(hero: Hero) {
+        return this.http.post('/api/heroes', hero);
+    }
+
+    get() {
+        return this.http.get('/api/heroes');
+    }
 }
