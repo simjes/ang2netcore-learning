@@ -1,19 +1,18 @@
 
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-
+import { AuthHttp } from 'angular2-jwt';
 import { Hero } from './hero';
 
 @Injectable()
 export class HeroService { 
-    constructor(private http: Http) {
+    constructor(private authHttp: AuthHttp) {
     }
 
     save(hero: Hero) {
-        return this.http.post('/api/heroes', hero);
+        return this.authHttp.post('/api/heroes', hero);
     }
 
     get() {
-        return this.http.get('/api/heroes');
+        return this.authHttp.get('/api/heroes');
     }
 }

@@ -53,7 +53,7 @@ namespace handv
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            var options = new RewriteOptions()
+            var httpsOptions = new RewriteOptions()
                 .AddRedirectToHttps();
 
             if (env.IsDevelopment())
@@ -70,6 +70,14 @@ namespace handv
             }
 
             app.UseStaticFiles();
+
+            var jwtOptions = new JwtBearerOptions
+            {
+                Audience = Configuration["clientId"],
+                Authority = $"https://{Configuration["domain"]}/"
+            };
+            app.UseJwtBearerAuthentication(jwtOptions);
+
 
             app.UseMvc(routes =>
             {

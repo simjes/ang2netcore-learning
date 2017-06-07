@@ -5,10 +5,12 @@ using System.Collections.Generic;
 
 namespace Apple.Controllers
 {
+    //[Authorize]
     [Route("api/[controller]")]
     public class HeroesController : Controller
     {
         private HeroService _heroService;
+        //private readonly UserManager<ApplicationUser> _userManager;
 
         public HeroesController()
         {
@@ -20,7 +22,13 @@ namespace Apple.Controllers
         public IEnumerable<Hero> Get()
         {
 
-            return _heroService.getHeroes();
+            //var userId = User.Claims(ClaimTypes.NameIdentifier);
+            if (User.Identity.IsAuthenticated)
+            {
+                return _heroService.getHeroes();
+            }
+
+            return _heroService.getTopFiveHeroes();
         }
 
         [HttpGet("{id}")]

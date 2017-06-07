@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './components/app/app.component'
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeroComponent } from './components/hero/hero.component';
 import { RankListComponent } from './components/ranklist/ranklist.component';
-import { HttpModule } from '@angular/http';
+import { CallbackComponent } from './components/callback/callback.component';
+
 
 
 export const sharedConfig: NgModule = {
@@ -20,7 +22,8 @@ export const sharedConfig: NgModule = {
         FetchDataComponent,
         HomeComponent,
         HeroComponent,
-        RankListComponent
+        RankListComponent,
+        CallbackComponent
     ],
     imports: [
         FormsModule,
@@ -32,6 +35,7 @@ export const sharedConfig: NgModule = {
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'hero', component: HeroComponent },
+            { path: 'callback', component: CallbackComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ],

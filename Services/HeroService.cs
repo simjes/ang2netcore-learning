@@ -28,7 +28,12 @@ namespace handv.Services
             return heroes;
         }
 
-        public Hero getHeroById(int id) //change to id
+        public IEnumerable<Hero> getTopFiveHeroes() //change to top 5
+        {
+            return heroes.Where(hero => hero.Id % 2 == 0);
+        }
+
+        public Hero getHeroById(int id)
         {
             return heroes.Single(hero => hero.Id == id);
         }

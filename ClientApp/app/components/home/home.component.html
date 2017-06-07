@@ -2,7 +2,8 @@
     <div class="container">
         <h1>Heroes and Villains Ranking</h1>
         <p>Log in to view full ranking and add new heroes and villains</p>
-        <button class="btn btn-primary" (click)="login()">Log in</button>
+        <button *ngIf="!authService.isAuthenticated()" class="btn btn-primary" (click)="login()">Log in</button>
+        <button *ngIf="authService.isAuthenticated()" class="btn btn-primary" (click)="logout()">Log out</button>
     </div>
 </div>
 <div *ngIf="heroes">
