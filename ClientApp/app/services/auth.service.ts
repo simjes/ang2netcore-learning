@@ -1,7 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/filter';
-import {tokenNotExpired} from 'angular2-jwt';
 //import {WebAuth} from 'auth0-js';
 //import * as auth0 from 'auth0-js';
 
@@ -72,7 +71,8 @@ export class AuthService {
         localStorage.removeItem('profile');
         this.userProfile = null;
         // Go back to the home route
-        this.router.navigate(['/']);
+        window.location.replace('/logout');
+        //this.router.navigate(['/']);
     }
 
     public isAuthenticated(): boolean {

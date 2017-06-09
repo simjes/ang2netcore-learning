@@ -1,28 +1,27 @@
 using Apple.Models;
 using handv.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 namespace Apple.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     public class HeroesController : Controller
     {
         private HeroService _heroService;
-        //private readonly UserManager<ApplicationUser> _userManager;
+
 
         public HeroesController()
         {
             _heroService = new HeroService();
         }
 
-
+        [AllowAnonymous]
         [HttpGet]
         public IEnumerable<Hero> Get()
         {
-
-            //var userId = User.Claims(ClaimTypes.NameIdentifier);
             if (User.Identity.IsAuthenticated)
             {
                 return _heroService.getHeroes();
@@ -31,6 +30,7 @@ namespace Apple.Controllers
             return _heroService.getTopFiveHeroes();
         }
 
+        //[AllowAnonymous]
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {

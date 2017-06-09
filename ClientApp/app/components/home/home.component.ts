@@ -18,11 +18,10 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-         //if (this.authService.isAuthenticated()) {
-             this.heroService.get().subscribe(result => {
-                 this.heroes = result.json() as Hero[];
-             });
-         //}
+        this.heroService.get(this.authService.isAuthenticated())
+            .subscribe(result => {
+            this.heroes = result.json() as Hero[];
+        });
     }
 
     login() {
