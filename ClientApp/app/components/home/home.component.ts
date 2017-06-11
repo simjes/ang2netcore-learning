@@ -12,8 +12,7 @@ import { HeroService } from '../hero/hero.service';
 export class HomeComponent implements OnInit {
     public heroes: Hero[];
     
-    constructor(private authService: AuthService, private heroService: HeroService) {
-        
+    constructor(private authService: AuthService, private heroService: HeroService) {     
         
     }
 

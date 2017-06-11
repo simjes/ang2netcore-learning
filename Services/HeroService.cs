@@ -6,7 +6,7 @@ namespace handv.Services
 {
     public class HeroService
     {
-        List<Hero> heroes = new List<Hero>
+        private readonly List<Hero> _heroes = new List<Hero>
         {
             new Hero() {Name = "Batman", Id = 1},
             new Hero() {Name = "Superman", Id = 2},
@@ -16,26 +16,26 @@ namespace handv.Services
             new Hero() {Name = "Ironman", Id = 6}
         };
 
-        public Hero addHero(Hero hero)
+        public Hero AddHero(Hero hero)
         {
-            hero.Id = ++heroes.Last().Id;
-            heroes.Add(hero);
+            hero.Id = ++_heroes.Last().Id;
+            _heroes.Add(hero);
             return hero;
         }
 
-        public IEnumerable<Hero> getHeroes()
+        public IEnumerable<Hero> GetHeroes()
         {
-            return heroes;
+            return _heroes;
         }
 
-        public IEnumerable<Hero> getTopFiveHeroes() //change to top 5
+        public IEnumerable<Hero> GetTopFiveHeroes() //change to top 5
         {
-            return heroes.Where(hero => hero.Id % 2 == 0);
+            return _heroes.Where(hero => hero.Id % 2 == 0);
         }
 
-        public Hero getHeroById(int id)
+        public Hero GetHeroById(int id)
         {
-            return heroes.Single(hero => hero.Id == id);
+            return _heroes.Single(hero => hero.Id == id);
         }
     }
 }

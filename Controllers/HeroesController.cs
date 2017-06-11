@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace Apple.Controllers
+namespace handv.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
     public class HeroesController : Controller
     {
-        private HeroService _heroService;
+        private readonly HeroService _heroService;
 
 
         public HeroesController()
@@ -24,17 +24,17 @@ namespace Apple.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return _heroService.getHeroes();
+                return _heroService.GetHeroes();
             }
 
-            return _heroService.getTopFiveHeroes();
+            return _heroService.GetTopFiveHeroes();
         }
 
         //[AllowAnonymous]
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            return Ok(_heroService.getHeroById(id));
+            return Ok(_heroService.GetHeroById(id));
         }
 
 
@@ -44,7 +44,7 @@ namespace Apple.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            return Ok(_heroService.addHero(hero));
+            return Ok(_heroService.AddHero(hero));
         }
 
         //// POST: api/Default
