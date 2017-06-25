@@ -2,7 +2,6 @@ import { Component, OnInit, AfterViewInit} from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Hero } from '../hero/hero';
 import { HeroService } from '../hero/hero.service';
-//import { Foundation } from 'foundation-sites/js/foundation.core';
 
 declare var $: any;
 
@@ -29,7 +28,7 @@ export class HomeComponent implements OnInit, AfterViewInit  {
 
     ngAfterViewInit(): void {
         $('#here').text("HALLO! ^_^");
-        //$(document).Foundation();
+        $(document).foundation();
     }
 
     login() {
