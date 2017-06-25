@@ -32,6 +32,8 @@ module.exports = (env) => {
                 'event-source-polyfill',
                 'jquery',
                 'zone.js',
+                'foundation-sites',
+                'foundation-sites/dist/css/foundation.css',
             ]
         },
         output: {
@@ -73,7 +75,9 @@ module.exports = (env) => {
             libraryTarget: 'commonjs2',
         },
         module: {
-            rules: [ { test: /\.css(\?|$)/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] } ]
+            rules: [
+                { test: /\.css(\?|$)/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize'] }
+            ]
         },
         entry: { vendor: ['aspnet-prerendering'] },
         plugins: [

@@ -7,6 +7,8 @@ import { HeroService } from './components/hero/hero.service';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AuthService } from './services/auth.service';
 
+
+
 @NgModule({
     declarations: sharedConfig.declarations,
     imports: [
