@@ -2,9 +2,20 @@
     <div class="container">
         <h1>Heroes and Villains Ranking</h1>
         <p>Log in to view full ranking and add new heroes and villains</p>
-        <button *ngIf="!authService.isAuthenticated()" class="btn btn-primary" (click)="login()">Log in</button>
+        <button *ngIf="!authService.isAuthenticated()" class="btn btn-primary tiny" (click)="login()">Log in</button>
         <button *ngIf="authService.isAuthenticated()" class="btn btn-primary" (click)="logout()">Log out</button>
     </div>
+</div>
+<button type="button" class="success button tiny">Save</button>
+<div id="here"></div>
+<div class="small-10 columns">
+    <div class="slider" data-slider data-initial-start="50">
+        <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+        <span class="slider-fill" data-slider-fill></span>
+    </div>
+</div>
+<div class="small-2 columns">
+    <input type="number" id="sliderOutput1">
 </div>
 <div *ngIf="heroes">
     <div class="col-lg-5 col-lg-offset-1">
@@ -14,4 +25,5 @@
     <div class="col-lg-5">
         <ranklist [heroes]="heroes"></ranklist>
     </div>
+
 </div>

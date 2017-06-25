@@ -6,6 +6,13 @@ import { sharedConfig } from './app.module.shared';
 import { HeroService } from './components/hero/hero.service';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AuthService } from './services/auth.service';
+import * as $ from 'jquery';
+//import { Foundation } from 'foundation-sites/js/foundation.core';
+
+declare var $: any;
+
+window["$"] = $;
+window["jQuery"] = $;
 
 @NgModule({
     declarations: sharedConfig.declarations,
@@ -24,4 +31,7 @@ import { AuthService } from './services/auth.service';
     bootstrap: sharedConfig.bootstrap
 })
 export class AppModule {
+    constructor() {
+        //Foundation.addToJquery($);
+    }
 }
