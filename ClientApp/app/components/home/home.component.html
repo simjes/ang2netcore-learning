@@ -17,13 +17,15 @@
 <div class="small-2 columns">
     <input type="number" id="sliderOutput1">
 </div>
-<div *ngIf="heroes">
-    <div class="col-lg-5 col-lg-offset-1">
-        <ranklist [heroes]="heroes"></ranklist>
-    </div>
 
-    <div class="col-lg-5">
-        <ranklist [heroes]="heroes"></ranklist>
-    </div>
+<div *ngIf="heroes" class="grid-container">
+    <div class="grid-x">
+        <div class="cell large-6">
+            <ranklist [heroes]="heroes" class="cell small-4"></ranklist>
+        </div>
 
+        <div class="cell large-6">
+            <ranklist [heroes]="heroes"></ranklist>
+        </div>
+    </div>
 </div>
